@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../static/garfilld.png">
+    <title>NEED MOVIES</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,500,500i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+
+    <!-- partial:index.partial.html -->
+    <input class="variation" id="bluepurple" type="radio" value="1" name="color" style="opacity: 0;" />
+    <input class="variation" id="sunset" type="radio" value="2" name="color" style="opacity: 0;" />
+    <input class="variation" id="godiva" type="radio" value="3" name="color" style="opacity: 0;" />
+    <input class="variation" id="dark" type="radio" value="4" name="color" checked="checked" style="opacity: 0;" />
+    <input class="variation" id="pinkaru" type="radio" value="5" name="color" style="opacity: 0;" />
+    <main>
+        <section class="results-header">
+            <h1>NEED MOVIES </h1>
+            <div class='container' tabindex='1'>
+                <div class='search-container' tabindex='1' style="background-color: #212;">
+                    <input placeholder='Search ' type='text' style="background-color: #2a313b;">
+                    <a class='button' style="background-color: #212; ">
+                        <img src="http://images.clipartpanda.com/search-png-white-active-search-xxl.png" width="35px" height="35px" style="padding-bottom: 6px;"></img>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <div class="filter-section__wrapper">
+            <section class="filter-section" style="overflow: auto;">
+                <div class=" results-header results-header__option underline">
+                    <div class="option__button option--grid "><span></span><span></span><span></span><span></span><span>Grid</span></div>
+                    <div class="option__button option--list selected"><span></span><span></span><span></span><span>List</span></div>
+                    </br>
+                </div>
+                <a class="button" onclick="getMovies()" style="margin-bottom: 20px;">Press > HERE < for movies</a>
+                <h6 class="underline">Select Category</h6>
+                <div class="filters" style="overflow-y: scroll; height:450px; border-color: transparent; ">
+                    <h5 class="filters__title"></h5>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="horro" type="checkbox" />
+                            <label for="horro">Horror<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Action" type="checkbox" />
+                            <label for="Action">Action<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Comedy" type="checkbox" />
+                            <label for="Comedy">Comedy<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Animation" type="checkbox" />
+                            <label for="Animation">Animation<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Adventure" type="checkbox" />
+                            <label for="Adventure">Adventure<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Fantasy" type="checkbox" />
+                            <label for="Fantasy">Fantasy<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="History" type="checkbox" />
+                            <label for="History">History<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Western" type="checkbox" />
+                            <label for="Western">Western<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Crime" type="checkbox" />
+                            <label for="Crime">Crime<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Documentary" type="checkbox" />
+                            <label for="Documentary">Documentary<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Science_Fiction" type="checkbox" />
+                            <label for="Science_Fiction">Science Fiction<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Mystery" type="checkbox" />
+                            <label for="Mystery">Mystery<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Music" type="checkbox" />
+                            <label for="Music">Music<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Romance" type="checkbox" />
+                            <label for="Romance">Romance<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Family" type="checkbox" />
+                            <label for="Family">Family<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="War" type="checkbox" />
+                            <label for="War">War<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="TV_Movie" type="checkbox" />
+                            <label for="TV_Movie">TV Movie<span class="box"></span></label></div>
+                    </div>
+                    <h5 class="filters__title">Preferences</h5>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="Popularity" type="checkbox" />
+                            <label for="Popularity">Popularity<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="adult" type="checkbox" />
+                            <label for="adult">Adult Movies<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="old" type="checkbox" />
+                            <label for="old">Older than 2000<span class="box"></span></label></div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="new" type="checkbox" checked/>
+                            <label for="new">Older than 2010<span class="box"></span></label></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section id="moviesHere" style="border-left: lavenderblush 1px;" class="results-section results--list">
+
+            <img src="../static/garfilld.png" width="100%" height="100%" alt="press the movie button">
+
+        </section>
+
+    </main>
+    <footer>
+        <div class="explanation">All Rights Reserved to
+            <a href="https://github.com/marioallaa" target="_blank"> Mario Alla </a>. Ⓒ </br>
+            <a href="https://github.com/marioallaa" target="_blank"> Legalities </a> </div>
+        <div class="social">
+            <a href="https://instagram.com/marioallaa" target="_blank">
+                <i class="icon-social-instagram icons"></i></a>
+            <a href="https://github.com/marioallaa" target="_blank">
+                <i class="icon-social-github icons"></i></a>
+            <a href="https://www.facebook.com/marioaallaa" target="_blank">
+                <i class="icon-social-facebook icons"></i></a>
+        </div>
+    </footer>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="../static/script.js"></script>
+
+</body>
+
+</html>

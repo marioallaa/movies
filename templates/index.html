@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../static/garfilld.png">
+    <title>You want a movie?</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,500,500i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <input class="variation" id="bluepurple" type="radio" value="1" name="color" style="opacity: 0;" />
+    <input class="variation" id="sunset" type="radio" value="2" name="color" style="opacity: 0;" />
+    <input class="variation" id="godiva" type="radio" value="3" name="color" style="opacity: 0;" />
+    <input class="variation" id="dark" type="radio" value="4" name="color" checked="checked" style="opacity: 0;" />
+    <input class="variation" id="pinkaru" type="radio" value="5" name="color" style="opacity: 0;" />
+    <header>
+        <div class="explanation">We don't like adds, if you want this site to go on help us</br>
+            <a href="https://instagram.com/marioallaa" target="_blank"> PayPal</a> ||
+            <a href="https://instagram.com/marioallaa" target="_blank"> Patreon</a> </div>
+        <div class="social">
+            <a href="https://instagram.com/marioallaa" target="_blank">
+                <i class="icon-social-instagram icons"></i></a>
+            <a href="https://github.com/marioallaa" target="_blank">
+                <i class="icon-social-github icons"></i></a>
+            <a href="https://www.facebook.com/marioaallaa" target="_blank">
+                <i class="icon-social-facebook icons"></i></a>
+        </div>
+    </header>
+
+    <script>
+        function search(ele) {
+            if (event.key === 'Enter') {
+                doSearch()
+            } else {
+                doSearch()
+            }
+        }
+    </script>
+
+    <main>
+        <section class="results-header">
+            <h1>You want a movie?</h1>
+            <div class='search-container' tabindex='1' style="background-color: #212;">
+                <input placeholder='Search ' id='searchfield' onkeyup="search(this)" type='text' style="background-color: #2a313b;">
+                <a class='button' style="background-color: #212; ">
+                    <img src="../static/search.png" width="35px" height="35px" style="padding-bottom: 6px;"></img>
+                </a>
+            </div>
+
+        </section>
+
+
+        <div class="filter-section__wrapper">
+            <section class="filter-section" style="overflow: auto;">
+
+                <div class=" results-header results-header__option underline" style="margin: 1em;">
+                    <div class="option__button option--grid "><span></span><span></span><span></span><span></span><span>Grid</span></div>
+                    <div class="option__button option--list selected"><span></span><span></span><span></span><span>List</span></div>
+                </div>
+                <a class="button" onclick="getMovies()" style="margin-bottom: 20px;">Press > HERE < for a movie</a>
+                <h6 class="underline">Preferences & Categories</h6>
+                <div class="filters" style="overflow-y: scroll; height:450px; border-color: transparent; ">
+                    <div class="range-slider">
+                        <h5 class="filters__title">Popularity</h5>
+                        <input class="range-slider__range" id="poprange" type="range" value="20" min="0" max="200">
+                        <span class="range-slider__value">100</span>
+                    </div>
+                    <div class="filters__item">
+                        <h5 class="filters__title">Category</h5>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Horror" type="checkbox" />
+                                <label for="Horror">Horror<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Action" type="checkbox" />
+                                <label for="Action">Action<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Comedy" type="checkbox" />
+                                <label for="Comedy">Comedy<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Animation" type="checkbox" />
+                                <label for="Animation">Animation<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Adventure" type="checkbox" />
+                                <label for="Adventure">Adventure<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Fantasy" type="checkbox" />
+                                <label for="Fantasy">Fantasy<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="History" type="checkbox" />
+                                <label for="History">History<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Western" type="checkbox" />
+                                <label for="Western">Western<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Crime" type="checkbox" />
+                                <label for="Crime">Crime<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Documentary" type="checkbox" />
+                                <label for="Documentary">Documentary<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Science Fiction" type="checkbox" />
+                                <label for="Science Fiction">Sci-Fi<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Mystery" type="checkbox" />
+                                <label for="Mystery">Mystery<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Music" type="checkbox" />
+                                <label for="Music">Music<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Romance" type="checkbox" />
+                                <label for="Romance">Romance<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="Family" type="checkbox" />
+                                <label for="Family">Family<span class="box"></span></label></div>
+                        </div>
+                        <div class="filters__item">
+                            <div class="checkbox">
+                                <input class="genrebox" id="War" type="checkbox" />
+                                <label for="War">War<span class="box"></span></label></div>
+                        </div>
+                    </div>
+            </section>
+            </div>
+            <section id="id" style="border-left: lavenderblush 1px;" class="results-section results--list">
+                <img src="../static/garfilld.png" width="100%" height="100%" alt="press the movie button">
+
+            </section>
+
+    </main>
+    <footer>
+        <div class="explanation"> Ⓒ All Rights Reserved to
+            <a href="http://itsmarkio.com" target="_blank"> itsmarkio.com  </a> </br> >>
+            <a href="https://github.com/marioallaa" target="_blank"> LEGALITIES </a> </div>
+        <div class="social">
+            <a href="https://instagram.com/marioallaa" target="_blank">
+                <i class="icon-social-instagram icons"></i></a>
+            <a href="https://github.com/marioallaa" target="_blank">
+                <i class="icon-social-github icons"></i></a>
+            <a href="https://www.facebook.com/marioaallaa" target="_blank">
+                <i class="icon-social-facebook icons"></i></a>
+        </div>
+    </footer>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="../static/script.js"></script>
+
+</body>
+
+</html>
