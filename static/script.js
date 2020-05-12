@@ -31,24 +31,24 @@ function getGenres() {
 function doSearch() {
     var data = {
         "search": document.getElementById("searchfield").value,
-        "popularity": document.getElementById("poprange ").value,
+        "popularity": document.getElementById("poprange").value,
         "genres": getGenres(),
         "isAdult": false,
         "limit": 10
 
     };
-    console.log(window.location.href + "/here");
+    console.log(window.location.href + "here");
     console.log(data)
     $.ajax({
         type: "POST",
-        url: "localhost:3000/here", //localhost Flask
+        url: window.location.href + "here",
         data: JSON.stringify(data),
         contentType: "application/json",
         success: function(data) {
-            document.getElementById('id ').innerHTML = '';
+            document.getElementById('id').innerHTML = '';
             data.forEach(element => {
                 // console.log(element)
-                document.getElementById('id ').innerHTML = document.getElementById('id ').innerHTML + CreateView(element);
+                document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
             })
 
         }
@@ -56,9 +56,9 @@ function doSearch() {
 }
 
 var rangeSlider = function() {
-    var slider = $('.range-slider '),
-        range = $('.range-slider__range '),
-        value = $('.range-slider__value ');
+    var slider = $('.range-slider'),
+        range = $('.range-slider__range'),
+        value = $('.range-slider__value');
 
     slider.each(function() {
         value.each(function() {
@@ -94,15 +94,9 @@ function CreateView(m) {
 					</p>
 				</div>
 				<div class="profile__stats">
-					<p class="profile__stats__title"> Relased
+					<p class="profile__stats__title"> Country / Relased
 					</p>											
-					<h5 class="profile__stats__info"> ${ m.bday }
-					</h5>
-				</div>
-				<div class="profile__stats">
-					<p class="profile__stats__title"> Country
-					</p>											
-					<h5 class="profile__stats__info"> ${ m.language }
+					<h5 class="profile__stats__info"> ${ m.language } / ${ m.bday }
 					</h5>
 				</div>
 				<div class="profile__stats">
@@ -113,8 +107,8 @@ function CreateView(m) {
 					<p class="profile__stats__title">  Popularity
 					</p> <h5 class="profile__stats__info"> ${ m.popularity}
 					</h5> </div> <div class="profile__cta"> 
-					<a class="button"> 
-		 				Search  123 Movies </a>
+					<a class="button" onclick="window.location.href = ('http://www.google.com/search?q=${m.title}');"> 
+		 				GOOGLE this Movie </a>
             	</div>
 			</div>
 		</div>

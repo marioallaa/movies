@@ -2,8 +2,17 @@
 from flask import Flask, render_template, request
 from flask_cors import CORS, cross_origin
 from flask import jsonify, json
-from createDb import Api
+from logic import Api
+from os import path, walk
 
+extra_dirs = ['static', 'templates', 'data', '.']
+extra_files = extra_dirs[:]
+for extra_dir in extra_dirs:
+    for dirname, dirs, files in walk(extra_dir):
+        for filename in files:
+            filename = path.join(dirname, filename)
+            if path.isfile(filename):
+                extra_files.append(filename)
 api = Api()
 app = Flask(__name__,)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -60,5 +69,5 @@ def suggestMovie():
 def save():
     return None
 
-app.run(port=3000,host='0.0.0.0')
+app.run(port=619,host='0.0.0.0', extra_files=extra_files)
 
