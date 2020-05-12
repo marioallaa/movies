@@ -49,7 +49,7 @@
             <h1>You want a movie?</h1>
             <div class='search-container' tabindex='1' style="background-color: #212;">
                 <input placeholder='Search ' id='searchfield' onkeyup="search(this)" type='text' style="background-color: #2a313b;">
-                <a class='button' style="background-color: #212; ">
+                <a class='button' style="background-color: #212;">
                     <img src="../static/search.png" width="35px" height="35px" style="padding-bottom: 6px;"></img>
                 </a>
             </div>
@@ -61,15 +61,15 @@
             <section class="filter-section" style="overflow: auto;">
 
                 <div class=" results-header results-header__option underline" style="margin: 1em;">
-                    <div class="option__button option--grid "><span></span><span></span><span></span><span></span><span>Grid</span></div>
+                    <div class="option__button option--grid"><span></span><span></span><span></span><span></span><span>Grid</span></div>
                     <div class="option__button option--list selected"><span></span><span></span><span></span><span>List</span></div>
                 </div>
                 <a class="button" onclick="getMovies()" style="margin-bottom: 20px;">Press > HERE < for a movie</a>
                 <h6 class="underline">Preferences & Categories</h6>
-                <div class="filters" style="overflow-y: scroll; height:450px; border-color: transparent; ">
-                    <div class="range-slider">
+                <div class="filters>
+                    <div class=" range-slider">
                         <h5 class="filters__title">Popularity</h5>
-                        <input class="range-slider__range" id="poprange" type="range" value="20" min="0" max="200">
+                        <input class="range-slider__range" id="poprange" type="range" value="20" min="0" max="100">
                         <span class="range-slider__value">100</span>
                     </div>
                     <div class="filters__item">

@@ -812,15 +812,15 @@ input.variation+label {
 /* PROFILE CARDS */
 
 .results-header {
-    grid-column: span 2;
+    /* grid-column: span 2; */
     display: grid;
-    grid-template-columns: 1fr max-content;
+    /* grid-template-columns: 1fr max-content; */
 }
 
 .results-header__option {
     display: grid;
     grid-gap: 8px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 0.5fr);
     cursor: pointer;
 }
 
@@ -1029,6 +1029,11 @@ input.variation+label {
 @media (min-width: 612px) {
     input.variation+label {
         margin: 70px 20px 20px;
+    }
+    .results-header {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1fr max-content;
     }
     .results-section.results--grid .profile {
         width: 100%;

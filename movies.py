@@ -97,13 +97,15 @@ class Movies:
         return f
 
     def getList(self, search='', popularity=-1, genres='', isAdult=False): 
-        query = f' where popularity > {popularity}'
+        query = f' where popularity>{popularity}'
         if genres != '':
             for g in genres.split(' '):
                 query = query + " and genres like '%{}%'".format(g)
+        if isAdult:
+            query = query + f' and isAdult=True '
         if search!='':
             for s in search.split(' '):
-                query = query + " and  description like '%{}%'".format(s, s)
+                query = query + " and (description like '%{}%' or title like '%{}%')".format(s, s)
 
         res = self.con.execute(text(f"select * from movies {query};"))
         f = []
@@ -113,4 +115,5 @@ class Movies:
 
 if __name__ == "__main__":
     m = Movies()
-    m.getList(search='superman', genres='Science Fiction')
+    [print(e) for e in  m.getList()]
+   

@@ -56,9 +56,22 @@ class Api:
         popularity = int(popularity)
         array = self.m.getList(search=search, popularity=popularity, genres=genres, isAdult=adult,)
         final = []
-        if len(array) > limit:
+        if array == []:
+            final.append(dict(
+                        imgPath='https://scontent.ftia4-1.fna.fbcdn.net/v/t1.0-9/31358061_1486482608130033_6889977130264821760_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_ohc=LTfoIC-71R0AX8GBsPb&_nc_ht=scontent.ftia4-1.fna&oh=38837f4d06399f89709401838678f389&oe=5EDD08ED',
+                        title='No movies with your preferences', 
+                        description='Here are some other movies'
+                    )
+                )
+            array = self.m.getList()
             while len(final) < limit:
                 final.append(array.pop(random.randint(0, len(array))))
+        elif len(array) > limit:
+            while len(final) < limit:
+                try:
+                    final.append(array.pop(random.randint(0, len(array))))
+                except Exception:
+                    break
         else:
             final = array
         return final
@@ -121,8 +134,9 @@ class Api:
             print('smth went wrong but we good')
             return False
 
-if __name__ == '__main__':
-	a = Api()
-	a.getMovies()
+
+if __name__ == "__main__":
+    a = Api()
+    [print(e) for e in a.findMovie(adult=True, popularity=10)]
 
         

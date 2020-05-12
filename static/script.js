@@ -31,44 +31,34 @@ function getGenres() {
 function doSearch() {
     var data = {
         "search": document.getElementById("searchfield").value,
-        "popularity": document.getElementById("poprange").value,
+        "popularity": document.getElementById("poprange ").value,
         "genres": getGenres(),
         "isAdult": false,
         "limit": 10
 
-    }
-    console.log(window.location.href + "/here")
+    };
+    console.log(window.location.href + "/here");
+    console.log(data)
     $.ajax({
         type: "POST",
-        url: window.location.href + "/here", //localhost Flask
+        url: "localhost:3000/here", //localhost Flask
         data: JSON.stringify(data),
         contentType: "application/json",
         success: function(data) {
-            if (data.length > 0) {
-                document.getElementById('id').innerHTML = '';
-                data.forEach(element => {
-                    console.log(element)
-                    document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
-                })
-            } else {
-                $.get(url, function(data, status) {
-                    document.getElementById('id').innerHTML = '';
-                    data.forEach(element => {
-                        console.log(element)
-                        document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
-                    })
-                })
+            document.getElementById('id ').innerHTML = '';
+            data.forEach(element => {
+                // console.log(element)
+                document.getElementById('id ').innerHTML = document.getElementById('id ').innerHTML + CreateView(element);
+            })
 
-            }
         }
     });
 }
 
 var rangeSlider = function() {
-    var slider = $('.range-slider'),
-        v = 0,
-        range = $('.range-slider__range'),
-        value = $('.range-slider__value');
+    var slider = $('.range-slider '),
+        range = $('.range-slider__range '),
+        value = $('.range-slider__value ');
 
     slider.each(function() {
         value.each(function() {
@@ -110,6 +100,12 @@ function CreateView(m) {
 					</h5>
 				</div>
 				<div class="profile__stats">
+					<p class="profile__stats__title"> Country
+					</p>											
+					<h5 class="profile__stats__info"> ${ m.language }
+					</h5>
+				</div>
+				<div class="profile__stats">
 					<p class="profile__stats__title"> Genres
 					</p>
 					<h5> ${ m.genres }
@@ -117,7 +113,7 @@ function CreateView(m) {
 					<p class="profile__stats__title">  Popularity
 					</p> <h5 class="profile__stats__info"> ${ m.popularity}
 					</h5> </div> <div class="profile__cta"> 
-					<a class="button" href='https//ww3.123movies.domains/search/${m.title }' target="_blank"> 
+					<a class="button"> 
 		 				Search  123 Movies </a>
             	</div>
 			</div>
