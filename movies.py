@@ -101,10 +101,9 @@ class Movies:
         if genres != '':
             for g in genres.split(' '):
                 query = query + " and genres like '%{}%'".format(g)
-        query = query + f' and isAdult = {isAdult} '
         if search!='':
             for s in search.split(' '):
-                query = query + " and (title like '%{}%' or description like '%{}%')".format(s, s)
+                query = query + " and  description like '%{}%'".format(s, s)
 
         res = self.con.execute(text(f"select * from movies {query};"))
         f = []

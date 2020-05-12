@@ -121,8 +121,8 @@ class Api:
             print('smth went wrong but we good')
             return False
 
-
-a = Api()
-a.getMovies()
+if __name__ == '__main__':
+	a = Api()
+	a.getMovies()
 
         
