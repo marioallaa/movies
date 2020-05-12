@@ -27,32 +27,40 @@ function getGenres() {
     return l
 }
 
+var doSearchnow = true;
+
 
 function doSearch() {
-    var data = {
-        "search": document.getElementById("searchfield").value,
-        "popularity": document.getElementById("poprange").value,
-        "genres": getGenres(),
-        "isAdult": false,
-        "limit": 10
+    if (doSearchnow) {
+        doSearchnow = false;
+        var data = {
+            "search": document.getElementById("searchfield").value,
+            "popularity": document.getElementById("poprange").value,
+            "genres": getGenres(),
+            "isAdult": false,
+            "limit": 10
 
-    };
-    console.log(window.location.href + "here");
-    console.log(data)
-    $.ajax({
-        type: "POST",
-        url: window.location.href + "here",
-        data: JSON.stringify(data),
-        contentType: "application/json",
-        success: function(data) {
-            document.getElementById('id').innerHTML = '';
-            data.forEach(element => {
-                // console.log(element)
-                document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
-            })
+        };
+        console.log(window.location.href + "here");
+        console.log(data)
+        $.ajax({
+            type: "POST",
+            url: window.location.href + "here",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function(data) {
+                document.getElementById('id').innerHTML = '';
+                doSearchnow = true;
+                data.forEach(element => {
+                    // console.log(element)
+                    document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
+                })
 
-        }
-    });
+            }
+        });
+    } else {
+        console.log('waiting for a response')
+    }
 }
 
 var rangeSlider = function() {
@@ -106,9 +114,10 @@ function CreateView(m) {
 					</h5>  </div> <div class="profile__stats">
 					<p class="profile__stats__title">  Popularity
 					</p> <h5 class="profile__stats__info"> ${ m.popularity}
-					</h5> </div> <div class="profile__cta"> 
-					<a class="button" onclick="window.location.href = ('http://www.google.com/search?q=${m.title}');"> 
-		 				GOOGLE this Movie </a>
+					</h5> 
+				</div> 
+				<div class="profile__cta"> 
+					<a class="button" href="//www.google.com/search?q=${m.title}" target="_blank"> GOOGLE this Movie </a>
             	</div>
 			</div>
 		</div>
