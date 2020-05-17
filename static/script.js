@@ -3,7 +3,7 @@
 $("body").css("background", "#212");
 $("footer").attr("class", "dark");
 
-console.log(window.location.href)
+console.log('Looking for something else than a movie??')
 
 // toggle list vs card view 
 $(".option__button").on("click", function() {
@@ -41,8 +41,6 @@ function doSearch() {
             "limit": 10
 
         };
-        console.log(window.location.href + "here");
-        console.log(data)
         $.ajax({
             type: "POST",
             url: window.location.href + "here",
@@ -52,8 +50,15 @@ function doSearch() {
                 document.getElementById('id').innerHTML = '';
                 doSearchnow = true;
                 data.forEach(element => {
-                    // console.log(element)
-                    document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
+                    if (element.language == 'Sorry') {
+                        document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + notif(element);
+                    }
+                    if (element.isAdult == true) {
+                        element.title = "[+18] " + element.title
+                        document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
+                    } else {
+                        document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
+                    }
                 })
 
             }
@@ -87,6 +92,36 @@ rangeSlider();
 function getMovies() {
     doSearch()
 }
+
+
+function notif(m) {
+    return ` 
+	<div class="profile">
+        <div class="profile__image">
+			<img src="${m.imgPath}" alt="${m.title}">
+			</div>
+				<div class="profile__info">
+					<h3> ${m.title }
+					</h3>
+					<p class="profile__info__extra"> ${ m.description }
+					</p>
+				</div>
+				<div class="profile__stats">
+					<p class="profile__stats__title"> Genres
+					</p>
+					<h5> ${ m.genres }
+					</h5>  </div> <div class="profile__stats">
+					<p class="profile__stats__title">  Popularity
+					</p> <h5 class="profile__stats__info"> ${ m.popularity}
+					</h5> 
+				</div> 
+			</div>
+		</div>
+	</div>
+	</div>
+            `
+}
+
 
 
 function CreateView(m) {

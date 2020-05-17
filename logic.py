@@ -59,10 +59,10 @@ class Api:
         if array == []:
             final.append(dict(
                         imgPath='https://scontent.ftia4-1.fna.fbcdn.net/v/t1.0-9/31358061_1486482608130033_6889977130264821760_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_ohc=LTfoIC-71R0AX8GBsPb&_nc_ht=scontent.ftia4-1.fna&oh=38837f4d06399f89709401838678f389&oe=5EDD08ED',
-                        title='No movies with your preferences', 
+                        title='No movies with your preferences!', 
                         description=f'You searched for "{search}". \n We are sorry but we coldn\'t find movies with that name on the categories you chose, so we are ofering you some random suggestions',
                         bday='',
-                        language='',
+                        language='Sorry',
                         genres=genres, 
                         popularity=popularity,
                     )
