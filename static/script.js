@@ -52,6 +52,7 @@ function doSearch() {
                 doSearchnow = true;
                 data.forEach(element => {
                     if (!f) {
+                        f = true
                         console.log('reloading')
                         doSearch();
                     }
