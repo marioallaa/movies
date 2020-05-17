@@ -114,7 +114,6 @@ class Movies:
         for r in res.fetchall():
             f.append(dict(r))
         return f
-        # TEST
 
 if __name__ == "__main__":
     m = Movies()
