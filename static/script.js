@@ -68,8 +68,7 @@ function doSearch() {
             }
         });
     } else {
-        break
-        // console.log('waiting for a response')
+        console.log('stop spamming!')
     }
 }
 
