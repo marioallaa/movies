@@ -48,15 +48,22 @@ function doSearch() {
             contentType: "application/json",
             success: function(data) {
                 document.getElementById('id').innerHTML = '';
+                var f = doSearchnow
                 doSearchnow = true;
                 data.forEach(element => {
-                    if (element.language == 'Sorry') {
+                    if (f) {
+
+                        console.log('reloading')
+                        doSearch();
+                    }
+                    if (element.language === 'Sorry') {
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + notif(element);
                     }
-                    if (element.isAdult == true) {
+                    if (element.isAdult === true) {
                         element.title = "[+18] " + element.title
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
-                    } else {
+                    }
+                    if (element.language !== 'Sorry') {
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
                     }
                 })
