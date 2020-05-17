@@ -70,9 +70,7 @@ def suggestMovie():
 @app.route('/getMore/')
 def save():
     return None
-
-l = open('./keys/fullchain.pem', r)
-print(l)
+    
 ssl = ('./keys/fullchain.pem', './keys/privkey.pem') 
 p = 443
 app.run(port=p,host='0.0.0.0', ssl_context=ssl, extra_files=extra_files)
