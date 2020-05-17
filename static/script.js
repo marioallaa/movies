@@ -61,8 +61,7 @@ function doSearch() {
                     if (element.isAdult == true) {
                         element.title = "[+18] " + element.title
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
-                    }
-                    if (element.language !== 'Sorry') {
+                    } else if (element.language !== 'Sorry') {
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
                     }
                 })
