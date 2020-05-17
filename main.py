@@ -36,11 +36,11 @@ def saved():
 @cross_origin()
 @app.route("/here",  methods = ['POST'])
 def hello():
-    print(request.get_json())
     r = request.get_json()
     if str(r['search']).startswith('adult-'):
         r['isAdult'] = True
         r['search'] = str(r['search'])[6:]
+    print(r)
     return jsonify(api.findMovie(
                 search=r['search'], 
                 popularity=r['popularity'],
@@ -71,7 +71,8 @@ def suggestMovie():
 def save():
     return None
 try: 
-    open('./keys/fullchain.pem', r)
+    l = open('./keys/fullchain.pem', r)
+    print(l)
     ssl = ('./keys/fullchain.pem', './keys/privkey.pem') 
     p = 443
 except Exception:

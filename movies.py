@@ -102,7 +102,9 @@ class Movies:
             for g in genres.split(' '):
                 query = query + " and genres like '%{}%'".format(g)
         if isAdult:
-            query = query + f' and isAdult=True '
+            query = query + f' and isAdult '
+        else:
+            query = query + f' and NOT isAdult '
         if search!='':
             for s in search.split(' '):
                 query = query + " and (description like '%{}%' or title like '%{}%')".format(s, s)
