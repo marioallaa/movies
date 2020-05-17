@@ -51,7 +51,7 @@ function doSearch() {
                 var f = doSearchnow
                 doSearchnow = true;
                 data.forEach(element => {
-                    if (f) {
+                    if (!f) {
                         console.log('reloading')
                         doSearch();
                     }
@@ -68,7 +68,8 @@ function doSearch() {
             }
         });
     } else {
-        console.log('waiting for a response')
+        break
+        // console.log('waiting for a response')
     }
 }
 
