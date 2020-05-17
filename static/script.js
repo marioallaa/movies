@@ -52,14 +52,13 @@ function doSearch() {
                 doSearchnow = true;
                 data.forEach(element => {
                     if (f) {
-
                         console.log('reloading')
                         doSearch();
                     }
                     if (element.language === 'Sorry') {
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + notif(element);
                     }
-                    if (element.isAdult === true) {
+                    if (element.isAdult == true) {
                         element.title = "[+18] " + element.title
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
                     }
@@ -67,7 +66,6 @@ function doSearch() {
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + CreateView(element);
                     }
                 })
-
             }
         });
     } else {
