@@ -69,5 +69,5 @@ def suggestMovie():
 def save():
     return None
 
-app.run(port=88,host='0.0.0.0', extra_files=extra_files)
+app.run(port=443,host='0.0.0.0', ssl_context=('./keys/fullchain.pem', './keys/privkey.pem'), extra_files=extra_files)
 
