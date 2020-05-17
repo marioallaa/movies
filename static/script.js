@@ -51,11 +51,6 @@ function doSearch() {
                 var f = doSearchnow
                 doSearchnow = true;
                 data.forEach(element => {
-                    if (!f) {
-                        f = true
-                        console.log('reloading')
-                        doSearch();
-                    }
                     if (element.language === 'Sorry') {
                         document.getElementById('id').innerHTML = document.getElementById('id').innerHTML + notif(element);
                     }
