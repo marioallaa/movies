@@ -71,7 +71,8 @@ def suggestMovie():
 def save():
     return None
 try: 
-    open('./keys/fullchain.pem', r)
+    l = open('./keys/fullchain.pem', r)
+    print(l)
     ssl = ('./keys/fullchain.pem', './keys/privkey.pem') 
     p = 443
 except Exception:
