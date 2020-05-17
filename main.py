@@ -1,4 +1,6 @@
-# A very simple Flask Hello World app for you to get started with...
+"""
+COPYRIGHT NOTICE
+"""
 from flask import Flask, render_template, request
 from flask_cors import CORS, cross_origin
 from flask import jsonify, json
