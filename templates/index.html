@@ -182,6 +182,29 @@
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="static/script.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB7IC2jTT-Uq_iL-wYm7Lq1ylRWr37d3Pk",
+    authDomain: "movies-mark.firebaseapp.com",
+    databaseURL: "https://movies-mark.firebaseio.com",
+    projectId: "movies-mark",
+    storageBucket: "movies-mark.appspot.com",
+    messagingSenderId: "551710852323",
+    appId: "1:551710852323:web:135f20435a79e485b271d6",
+    measurementId: "G-DNQ0XZ4MZ0"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 </body>
 
